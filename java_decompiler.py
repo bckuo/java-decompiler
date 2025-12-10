@@ -37,7 +37,7 @@ def unzip(root_path: str, jar_path: str, output_path: str):
 def decomplie(class_path: str):
     dirname = os.path.dirname(class_path)
     result = subprocess.run(
-        f"{JAVA} -jar fernflower.jar -dgs=1 {class_path} {dirname}", **SUBPROCESS_KARGS
+        f"{JAVA} -jar bin\\fernflower.jar -dgs=1 {class_path} {dirname}", **SUBPROCESS_KARGS
     )
     os.remove(class_path)
     # print(result)
