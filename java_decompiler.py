@@ -6,6 +6,7 @@ from collections import deque
 from tqdm import tqdm
 from functools import partial
 from dotenv import dotenv_values
+import shutil
 
 from bfs import bfs
 from str_helper import parsePath, setLibraryPath, wrapExtension
@@ -29,6 +30,7 @@ def unzip(root_path: str, jar_path: str, output_path: str):
     result = subprocess.run(
         f"cd {library_path} && jar -xf {jar_path}", **SUBPROCESS_KARGS
     )
+    shutil.rmtree(os.path.join(library_path, "META-INF"))
     # print(result)
 
 
@@ -37,6 +39,7 @@ def decomplie(class_path: str):
     result = subprocess.run(
         f"{JAVA} -jar fernflower.jar -dgs=1 {class_path} {dirname}", **SUBPROCESS_KARGS
     )
+    os.remove(class_path)
     # print(result)
 
 

@@ -14,12 +14,12 @@ def parsePath(root_path: str, jar_path: str):
 def setLibraryPath(output_path: str, group_id: str, artifact_id: str):
     folders = [output_path, group_id, artifact_id]
 
-    # cur = "."
-    # for folder in folders:
-    #     cur = os.path.join(cur, folder)
-    #     if not os.path.exists(cur):
-    #         os.mkdir(cur)
-    os.makedirs(os.sep.join(folders))
+    cur = "."
+    for folder in folders:
+        cur = os.path.join(cur, folder)
+        if not os.path.exists(cur):
+            os.mkdir(cur)
+    # os.makedirs(os.sep.join(folders))
 
     library_path = os.path.join(*folders)
 
