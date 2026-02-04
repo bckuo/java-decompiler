@@ -1,15 +1,23 @@
+# Java Decompiler
 
-# Intro
-The purpose of this project is simply unzip a `jar` and decompile the `class` files to `java` files. The goal is to mimic the result of viewing libraries in Intellij.
+Unzips JARs and converts `.class` to `.java` using Fernflower (mimicking IntelliJ).
 
-The code requires `.env` file to pass the root of the library to decompile and path to java 17.
-The code expect the `fernflower.jar` placed at bin folder under root of project.
+### Requirements
+*   Python 3.12+
+*   Java 17+
 
-The version of Python used is `3.12.10`. 
-The version of Java is 17.
+### Setup
+1.  `git clone https://github.com/bckuo/java-decompiler.git`
+2.  `pip install -r requirements.txt`
+3.  Place `fernflower.jar` in the `bin/` folder. (Build it from [source](https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine)).
 
-# Credits
-
-The fernflower code is from [Intellij community Github](https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine).
-
-Please refer the link for the manual of the `fernflower.jar`.
+### Configuration (.env)
+Create a `.env` file in the project root with your paths:
+```ini
+ROOT_PATH=D:\path\to\jars
+JAVA=C:\path\to\java.exe
+```
+### Run
+```
+python java_decompiler.py
+```
